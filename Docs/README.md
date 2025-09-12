@@ -19,7 +19,7 @@ SecurePassCheck is a full-stack password strength checker and manager featuring 
    - [Features](#features)
    - [Setup](#setup)
    - [Usage](#usage)
-   - [🎥 Screencasts](#-screencasts)
+   - [🎥 Screencasts (To be uploaded very soon.)](#-screencasts-to-be-uploaded-very-soon)
    - [Registration Page](#registration-page)
    - [Login Page](#login-page)
    - [Frontend](#frontend)
@@ -53,7 +53,7 @@ The web app includes seven main components:
 Clone the repository:
 
 ```bash
-git clone 
+git clone https://github.com/zenzeniou/SecurePassCheck.git
 
 cd SecurePassCheck
 ```
@@ -83,7 +83,7 @@ pip install -r requirements.txt
 <br>
 
 ## Usage
-Run the backend. OTHERWISE THE WEB APP WILL FAIL:
+Run the backend. OTHERWISE THE WEB APPLICATION WILL FAIL:
 ```bash
 cd Backend
 
@@ -96,7 +96,7 @@ sudo python app.py
 ```
 
 
-## 🎥 Screencasts
+## 🎥 Screencasts (To be uploaded very soon.)
 
 In addition to the codebase, this project also comes with a series of screencasts that document both the full-stack development process and the cybersecurity protocols I implemented.
 
