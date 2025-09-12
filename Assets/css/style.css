@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: #00ff99;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00ff99;
+    padding: 60px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 20px #00ff99;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+input[type="email"],
+.password-wrapper input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #00ff99;
+    border-radius: 8px;
+    background-color: #111;
+    color: #00ff99;
+    font-size: 1rem;
+}
+
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #00ff99;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #00cc77;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.password-strength > .strength-text {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.9rem;
+}
+
+#strength-meter {
+    height: 10px;
+    border-radius: 5px;
+    background-color: #333;
+    margin-top: 20px;
+    transition: width 0.3s ease;
+}
+
+.password-tips {
+    margin-top: 25px;
+    font-size: 0.8rem;
+    background-color: #111;
+    border: 1px solid #00ff99;
+    border-radius: 5px;
+    padding: 8px;
+    color: #00ff99;
+    box-shadow: 0 0 10px #00ff99;
+    line-height: 1.4;
+}
+.password-tips p {
+    margin: 5px 0;
+}
+
+.password-tips p.satisfied {
+    text-decoration: line-through;
+    color: #888;
+}
+
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    flex: 1;
+    padding-right: 60px;
+}
+
+#toggle-password,
+#toggle-confirm-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #00ff99;
+    user-select: none;
+}
+
+#backend-error {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ff5555;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ff5555;
+    margin: 15px 0;
+    box-shadow: 0 0 10px rgba(255, 85, 85, 0.5);
+    text-shadow: 0 0 5px rgba(255, 85, 85, 0.8);
+    font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#backend-error::before {
+    content: "> ";
+    color: #ff5555;
+}
+
+#backend-error::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff5555, transparent);
+    animation: scanline 2s linear infinite;
+}
+
+@keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+}
+
+#captcha-limit-info {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 8px currentColor;
+}
+
+#captcha-limit-info.low {
+    border-color: #ff5555;
+    color: #ff5555;
+    box-shadow: 0 0 10px rgba(255, 85, 85, 0.4);
+}
+
+#captcha-limit-info.medium {
+    border-color: #ffaa00;
+    color: #ffaa00;
+    box-shadow: 0 0 10px rgba(255, 170, 0, 0.4);
+}
+
+#captcha-limit-info.high {
+    border-color: #00ff99;
+    color: #00ff99;
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.4);
+}
+
+#captcha-limit-message {
+    margin: 0 0 8px 0;
+    font-size: 0.9rem;
+}
+
+#captcha-limit-message::before {
+    content: "> ";
+}
+
+.captcha-progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.captcha-progress-bar {
+    flex-grow: 1;
+    height: 6px;
+    background: #222;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.captcha-progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease, background-color 0.3s ease;
+    position: relative;
+}
+
+.captcha-progress-fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: progress-glow 2s infinite;
+}
+
+@keyframes progress-glow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+#captcha-remaining {
+    font-size: 0.8rem;
+    min-width: 40px;
+    text-align: right;
+}
+
+
+@keyframes blink-warning {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.terminal-message {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-left: 3px solid #00ff99;
+    padding: 10px 15px;
+    margin: 10px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #00ff99;
+}
+
+.terminal-message::before {
+    content: "$ ";
+    color: #00ff99;
+}

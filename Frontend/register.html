@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | SecurePassCheck</title>
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="/Assets/css/style.css">
+    <script type="module" src="/Assets/js/register/script.js"></script>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Create Your Account</h2>
+        
+        <form id="registerForm" action="" method="POST">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+             
+            <div class="input-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" required>
+                    <span id="toggle-password">Show</span>
+                </div>
+                
+                <div class="password-strength">
+                    <div id="strength-meter"></div>
+                    <span class="strength-text"></span>
+                    <div class="password-tips">
+                        <p>Use at least 8 characters.</p>
+                        <p>Mix uppercase, lowercase, numbers & symbols.</p>
+                        <p>Avoid common patterns (e.g., password, 12345).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <span id="toggle-confirm-password">Show</span>
+                </div>
+                <p id="confirm-status" class="strength-text"></p>
+            </div>
+            
+            <div class="input-group">
+                <label>CAPTCHA Verification</label>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <img id="captcha_image" src="" alt="CAPTCHA" style="border: 1px solid #ccc;">
+                    <button type="button" id="refresh_captcha" style="padding: 5px 10px;">↻</button>
+                </div>
+                <input type="hidden" id="captcha_id" name="captcha_id">
+                <input type="text" id="captcha_answer" name="captcha_answer" placeholder="Enter CAPTCHA answer" required style="margin-top: 10px;">
+
+                <div id="backend-error-container" style="min-height: 20px; margin-top: 10px;"></div>
+            <input type="submit" value="Register"/>
+        </form>
+
+        <p style="text-align: center; margin-top:20px">
+            Already have an account?
+            <a href="/Frontend/index.html" style="color: #00ff99; text-decoration:underline">
+                Login Here
+            </a>
+        </p>
+
+        <div class="footer">
+            <p>SecurePassChecker | Zenios.Zeniou</p>
+        </div>
+    </div>
+</body>

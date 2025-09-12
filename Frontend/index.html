@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SecurePassCheck</title>
+    <link rel="icon" type="image/x-icon" href="/Assets/images/ethicalzen_1.png">
+    <link rel="stylesheet" href="/Assets/css/style.css">
+    <script type="module" src="/Assets/js/login/script.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>
+            Login Portal
+        </h2>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" required>
+                    <span id="toggle-password">Show</span>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="captcha_answer">Solve the CAPTCHA</label>
+                <div class="captcha-row" style="display: flex; align-items:center; gap: 12px;">
+                    <img id="captcha_image" alt="CAPTCHA" style="height:60px; border:1px solid #333; border-radius: 6px;">
+                    <button type="button" id="refresh_captcha" aria-label="Refresh CAPTCHA">🔄</button>
+                </div>
+                <input type="text" id="captcha_answer" name="captcha_answer" inputmode="numeric" autocomplete="off" placeholder="Enter the result" required>
+                <input type="hidden" id="captcha_id" name="captcha_id">
+
+            <input type="submit" id="loginButton" value="Login"/>
+        </form>
+
+        <!-- Registration. -->
+         <p style="text-align:center; margin-top:20px;">
+            Don't have an account yet?
+            <a href="/Frontend/register.html" style="color: #00ff99; text-decoration:underline;">Register here</a>
+         </p>
+
+        <div class="footer">
+            <p>SecurePassCheck | Zenios.Zeniou </p>
+        </div>
+    </div>
+</body>
+</html>
