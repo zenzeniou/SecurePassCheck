@@ -3,18 +3,12 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.db
 instance/
-.env
 
 # Virtual environments
 venv/
 .env/
 .venv/
-
-# Flask / SQLite
-*.sqlite3
-*.db
 
 # Node modules (if any frontend uses npm)
 node_modules/
