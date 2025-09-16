@@ -1,11 +1,15 @@
 # SecurePassCheck
 
-![Python](https://img.shields.io/badge/python-3.13.2-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-red)
-![HTML](https://img.shields.io/badge/HTML-green)
-![CSS](https://img.shields.io/badge/CSS-purple)
-![SQLite](https://img.shields.io/badge/SQLite-orange)
 ![](https://img.shields.io/badge/Web-App-yellow)
+![Python](https://img.shields.io/badge/Python-3.13.2-blue?logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?logo=sqlite&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-009639?logo=nginx&logoColor=white)
+
+
 
 SecurePassCheck is a full-stack password strength checker and manager featuring real-time validation, encryption, and advanced security hardening.
 
@@ -17,8 +21,9 @@ SecurePassCheck is a full-stack password strength checker and manager featuring 
    - [Table of Contents](#table-of-contents)
    - [Project Overview](#project-overview)
    - [Features](#features)
-   - [Setup](#setup)
-   - [Usage](#usage)
+   - [Quick Start with Docker](#quick-start-with-docker)
+   - [Installation Steps](#installation-steps)
+   - [Manual Setup (More likely for errors than Docker method)](#manual-setup-more-likely-for-errors-than-docker-method)
    - [🎥 Screencasts (To be uploaded very soon.)](#-screencasts-to-be-uploaded-very-soon)
    - [Registration Page](#registration-page)
    - [Login Page](#login-page)
@@ -48,52 +53,85 @@ The web app includes seven main components:
 - **Anti-Bruteforce Measures**: Login attempt limiting and self-hosted CAPTCHA for privacy-friendly verification.
 
 
-## Setup
+## Quick Start with Docker
 
-Clone the repository:
+Make sure you have **Docker** and **Docker Compose** installed on your system.  
+You can follow the official installation guides for your operating system:
+
+- [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+- [Install Docker Desktop on macOS](https://docs.docker.com/desktop/setup/install/mac-install/)
+- [Install Docker Engine on Linux](https://docs.docker.com/desktop/setup/install/linux/)
+
+
+## Installation Steps
+
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/zenzeniou/SecurePassCheck.git
 
 cd SecurePassCheck
 ```
-<br>
 
-Install Python Dependencies:
-
+2. Build and start the containers:
 ```bash
+docker-compose up --build
+```
 
-#For Windows 
+3. Access the application:
+   - Navigate to http://localhost:5500
+   - Or http://localhost:5500/register.html
+
+4. Stop the application:
+```bash
+docker-compose down
+```
+
+## Manual Setup (More likely for errors than Docker method)
+If you prefer to run without Docker:
+
+1. Clone the reposiroty:
+```bash
+git clone https://github.com/zenzeniou/SecurePassCheck.git
+
+cd SecurePassCheck
+```
+
+2. Set Up Python enviroment:
+```bash
+#For Windows
 python -m venv .venv
 .\.venv\Scripts\Activate
 
 #For Linux and MAC
 python3 -m venv .venv
 source .venv/bin/activate
-
 ```
 
+3. Install Python Dependencies:
 ```bash
-#Make sure you are in /SecurePassCheck (where the requirements.txt is located)
 pip install -r requirements.txt
 ```
 
----
-
-<br>
-
-## Usage
-Run the backend. OTHERWISE THE WEB APPLICATION WILL FAIL:
+4. Initialize database:
 ```bash
 cd Backend
-
-#For Windows and MAC
-python app.py
-
-#For Linux, might need sudo priveleges for some distros
-sudo python app.py
-
+python -c "from app import app, database; with app.app_context(): database.create_all()"
 ```
+
+5. Run the Backend:
+```bash
+python app.py
+```
+
+6. Serve the Frontend (In a new terminal):
+```bash
+cd Frontend
+python -m http.server 5500
+```
+
+7. Once the application is running:
+   - Open your browser and navigate to http://localhost:5500
 
 
 ## 🎥 Screencasts (To be uploaded very soon.)

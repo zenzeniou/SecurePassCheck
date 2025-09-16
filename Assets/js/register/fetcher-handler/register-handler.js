@@ -60,7 +60,7 @@ function handleRegisterSubmit(e) {
         return Promise.reject(new Error(errorMessage));
       }
 
-      return fetch("http://127.0.0.1:5050/register", {
+      return fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,14 +102,21 @@ function handleRegisterSubmit(e) {
           }
         });
       }
-      if(res.status === 201){
-        return {};
-      }
-      return res.json();
-    })
+      if (res.status === 201) {
+    return res.json().then(data => {
+      return { success: true, data };
+    }).catch(() => {
+      // If response has no JSON body, still treat as success
+      return { success: true };
+    });
+  }
+  
+  // For other success status codes
+  return res.json();
+})
     .then(data => {
       alert("Account created successfully!");
-      setTimeout(() => window.location.href = "/Frontend/index.html", 50);
+      setTimeout(() => window.location.href = "/index.html", 50);
     })
     .catch(err => {
       console.error("Registration failed: ", err);

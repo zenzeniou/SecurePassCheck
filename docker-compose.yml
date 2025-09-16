@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./Backend/instance:/app/Backend/instance
+    working_dir: /app/Backend
+    environment:
+      - SQLALCHEMY_DATABASE_URI=sqlite:////app/Backend/instance/users.db
+      - SECRET_KEY=zU2ZeMtzR-067nVwVTEViU1_sJ6NOQSgXtSo0aJGDadJOCqxltIhN9nGsG45KS-J7MZK3ZtnW1Z3baR79yz9LQ
+      - FLASK_ENV=production
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "5500:80"
+    depends_on:
+      - backend

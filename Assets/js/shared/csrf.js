@@ -2,7 +2,7 @@ let csrfToken = '';
 
 export async function fetchCSRFToken() {
     try {
-        const response = await fetch('http://127.0.0.1:5050/csrf-token', {
+        const response = await fetch('/api/csrf-token', {
             credentials: 'include',
             method: 'GET'
         });

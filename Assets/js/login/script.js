@@ -16,7 +16,7 @@ const togglePassword = document.querySelector("#toggle-password");
 async function loadCaptcha(){
   try{
     const csrfToken = getCSRFToken();
-    const result = await fetch("http://127.0.0.1:5050/captcha/new", {
+    const result = await fetch("/api/captcha/new", {
       method:"GET",
       credentials:"include",
       headers:{

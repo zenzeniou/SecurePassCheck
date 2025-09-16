@@ -21,21 +21,22 @@ app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE="Lax",
     SESSION_COOKIE_SECURE=False,
+    SESSION_COOKIE_DOMAIN=None,
     REMEMBER_COOKIE_HTTPONLY=True,
     REMEMBER_COOKIE_SECURE=False,
     PERMANENT_SESSION_LIFETIME=timedelta(hours=24),
 )
 
 # Database and CORS
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///users.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("SQLALCHEMY_DATABASE_URI", "sqlite:///users.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 CORS(app, 
-     origins=["http://127.0.0.1:5500", "http://localhost:5500"], 
+     origins=["http://localhost:5500", "http://127.0.0.1:5500", "http://frontend:80"], 
      supports_credentials=True,
-     allow_headers=["Content-Type", "X-CSRFToken", "Authorization"], 
-     methods=["GET", "POST", "OPTIONS"],
-     expose_headers=["Set-Cookie"])
+     allow_headers=["Content-Type", "X-CSRFToken", "Authorization", "X-Requested-With"], 
+     methods=["GET", "POST", "OPTIONS", "PUT", "DELETE"],
+     expose_headers=["Set-Cookie", "X-CSRFToken"])
 
 database.init_app(app)
 bcrypt.init_app(app)
@@ -81,4 +82,4 @@ if __name__ == "__main__":
     with app.app_context():
         pass
 
-    app.run(debug=True, port=5050)
+    app.run(host="0.0.0.0",debug=False, port=5050)

@@ -42,7 +42,7 @@ function handleLoginSubmit(e) {
     return;
   }
 
-  fetch("http://127.0.0.1:5050/login", {
+  fetch("/api/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -92,7 +92,7 @@ function handleLoginSubmit(e) {
       if (data.redirect) {
         window.location.href = data.redirect;
       } else {
-        window.location.href = "http://127.0.0.1:5050/success";
+        window.location.href = "/success.html";
       }
     })
     .catch(err => {

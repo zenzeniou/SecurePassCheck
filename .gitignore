@@ -7,7 +7,6 @@ instance/
 
 # Virtual environments
 venv/
-.env/
 .venv/
 
 # Node modules (if any frontend uses npm)
@@ -16,3 +15,7 @@ node_modules/
 # IDE configs
 .vscode/
 .idea/
+
+# Docker
+instance/
+!.gitkeep

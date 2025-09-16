@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function (){
-    fetch("http://127.0.0.1:5050/protected", {
+    fetch("/api/protected", {
         method:"GET",
         credentials:"include"
     })
 
     .then (res => {
         if(!res.ok){
-            window.location.href = "/Frontend/index.html"; //Redirect if not logged in
+            window.location.href = "/index.html"; 
             return Promise.reject("Unauthorized");
         }
         return res.json();

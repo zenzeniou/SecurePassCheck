@@ -132,7 +132,7 @@ def login():
         session.permanent = True
         print(f"Successful login for {email}, user_id: {user.id}")
 
-        return jsonify({"redirect": "http://127.0.0.1:5050/success"}), 200
+        return jsonify({"redirect": "/success"}), 200
 
     except Exception as e:
         print(f"Error in login function: {str(e)}")
