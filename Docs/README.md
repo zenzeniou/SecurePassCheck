@@ -23,7 +23,6 @@ SecurePassCheck is a full-stack password strength checker and manager featuring 
    - [Features](#features)
    - [Quick Start with Docker](#quick-start-with-docker)
    - [Installation Steps](#installation-steps)
-   - [Manual Setup (More likely for errors than Docker method)](#manual-setup-more-likely-for-errors-than-docker-method)
    - [🎥 Screencasts (To be uploaded very soon.)](#-screencasts-to-be-uploaded-very-soon)
    - [Registration Page](#registration-page)
    - [Login Page](#login-page)
@@ -86,52 +85,6 @@ docker-compose up --build
 ```bash
 docker-compose down
 ```
-
-## Manual Setup (More likely for errors than Docker method)
-If you prefer to run without Docker:
-
-1. Clone the reposiroty:
-```bash
-git clone https://github.com/zenzeniou/SecurePassCheck.git
-
-cd SecurePassCheck
-```
-
-2. Set Up Python enviroment:
-```bash
-#For Windows
-python -m venv .venv
-.\.venv\Scripts\Activate
-
-#For Linux and MAC
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-3. Install Python Dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-4. Initialize database:
-```bash
-cd Backend
-python -c "from app import app, database; with app.app_context(): database.create_all()"
-```
-
-5. Run the Backend:
-```bash
-python app.py
-```
-
-6. Serve the Frontend (In a new terminal):
-```bash
-cd Frontend
-python -m http.server 5500
-```
-
-7. Once the application is running:
-   - Open your browser and navigate to http://localhost:5500
 
 
 ## 🎥 Screencasts (To be uploaded very soon.)
