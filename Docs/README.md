@@ -104,6 +104,12 @@ docker-compose down
 
 In addition to the codebase, this project also comes with a series of screencasts that document both the full-stack development process and the cybersecurity protocols I implemented.
 
+👉 Important Note:
+Instead of storing these videos inside a /docs folder here on GitHub, I will provide unlisted YouTube links very soon.
+
+Why?
+The screencasts are large files and some of them are quite long. GitHub isn’t designed to handle video hosting at this scale — it would slow down the repository and cause issues for viewers. YouTube, on the other hand, makes them easy to watch, stream, and share without bloating the repo.
+
 **📌 Part 1: Building the App (Full Stack).**
 - These videos walk through the creation of the app step by step.
   - Intro & Preparation
