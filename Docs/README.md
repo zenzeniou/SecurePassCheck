@@ -23,6 +23,8 @@ SecurePassCheck is a full-stack password strength checker and manager featuring 
    - [Features](#features)
    - [Quick Start with Docker](#quick-start-with-docker)
    - [Installation Steps](#installation-steps)
+   - [Linux Demo](#linux-demo)
+   - [Windows Demo](#windows-demo)
    - [🎥 Screencasts (To be uploaded very soon.)](#-screencasts-to-be-uploaded-very-soon)
    - [Registration Page](#registration-page)
    - [Login Page](#login-page)
@@ -74,7 +76,11 @@ cd SecurePassCheck
 
 2. Build and start the containers:
 ```bash
+#For Windows
 docker-compose up --build
+
+#For Linux & macOS
+sudo docker compose up --build
 ```
 
 3. Access the application:
@@ -85,6 +91,13 @@ docker-compose up --build
 ```bash
 docker-compose down
 ```
+
+## Linux Demo
+![Linux Demo](/Assets/images/Linux_Installation.gif)
+
+
+## Windows Demo
+![Linux Demo](/Assets/images/Windows_Installation.gif)
 
 
 ## 🎥 Screencasts (To be uploaded very soon.)
