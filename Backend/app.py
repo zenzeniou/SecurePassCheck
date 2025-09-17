@@ -80,6 +80,7 @@ def success():
 
 if __name__ == "__main__":
     with app.app_context():
+        database.create_all()
         pass
 
     app.run(host="0.0.0.0",debug=False, port=5050)
